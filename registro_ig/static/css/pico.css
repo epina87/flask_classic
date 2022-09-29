@@ -2805,8 +2805,7 @@ select,
 summary,
 textarea,
 [tabindex] {
-  color: red;
-  /*-ms-touch-action: manipulation;*/
+  -ms-touch-action: manipulation;
 }
 
 [dir=rtl] {

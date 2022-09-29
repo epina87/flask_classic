@@ -1,0 +1,32 @@
+{% extends "base.html" %}            
+            
+{% block content %}
+<h1>Lista de movimientos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Cantidad</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for movement in data%}
+                <tr>
+                    <td>{{movement.date}}</td>
+                    <td>{{movement.concept | title }}</td>
+                    <td>{{"%.2f" |format(movement.quantity)}}</td>
+                    <td>
+                        <a href="/update/{{movement.id}}">
+                            <span class="material-symbols-outlined">edit</span>
+                        </a>
+                        <a href="/delete/{{movement.id}}">
+                            <span class="material-symbols-outlined">delete</span>
+                        </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+{% endblock %}
